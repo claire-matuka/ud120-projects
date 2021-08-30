@@ -19,8 +19,6 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-features_train = features_train[:int(len(features_train)/100)]
-labels_train = labels_train[:int(len(labels_train)/100)]
 
 #########################################################
 ### your code goes here ###
@@ -47,14 +45,11 @@ accuracy = accuracy_score(labels_test, pred)
 
 print("Accuracy: ", accuracy)
 
-### getting the 10th,26th and 50th elements
-answer10=pred[10]
-answer26=pred[26]
-answer50=pred[50]
+### getting the confusion matrix
+from sklearn.metrics import confusion_matrix
+conf_mat = confusion_matrix(labels_test, pred)
 
-print("10th element: ", answer10)
-print("26th element: ", answer26)
-print("50th element: ", answer50)
+print("Confusion matrix: ", conf_mat)
 
 
 
