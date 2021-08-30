@@ -30,7 +30,7 @@ from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 
 ### create classifier
-clf = SVC(kernel = "rbf")
+clf = SVC(kernel = "rbf", C = 10000)
 
 ### fit the classifier on the training features and labels
 t0 = time()
