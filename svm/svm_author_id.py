@@ -22,7 +22,28 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 #########################################################
 ### your code goes here ###
+### import the sklearn module for SVMs
+from sklearn.svm import SVC
+### import sklearn module for accuracy score
+from sklearn.metrics import accuracy_score
 
+### create classifier
+clf = SVC(kernel = "linear")
+
+### fit the classifier on the training features and labels
+t0 = time()
+clf.fit(features_train, labels_train)
+print("Training Time:", round(time()-t0, 3), "s")
+
+### use the trained classifier to predict labels for the test features
+t0 = time()
+pred = clf.predict(features_test)
+print("Predicting Time:", round(time()-t0, 3), "s")
+
+### get the accuracy
+accuracy = accuracy_score(labels_test, pred)
+
+print("Accuracy: ", accuracy)
 
 #########################################################
 
