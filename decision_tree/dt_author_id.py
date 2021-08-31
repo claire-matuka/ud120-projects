@@ -43,6 +43,12 @@ accuracy = accuracy_score(labels_test, pred)
 
 print("Accuracy: ", accuracy)
 
+
+### get the number of features in the data
+number_features = len(features_train[0])
+
+print("The total number of features: ", number_features)
+
 #########################################################
 
 
