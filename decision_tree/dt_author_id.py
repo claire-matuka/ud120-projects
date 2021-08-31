@@ -24,7 +24,24 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 #########################################################
 ### your code goes here ###
+### import the sklearn module for Decision Tree Classifier
+from sklearn.tree import DecisionTreeClassifier
+### import sklearn module for accuracy score
+from sklearn.metrics import accuracy_score
 
+### create classifier
+clf = DecisionTreeClassifier(min_samples_split = 40)
+
+### fit the classifier on the training features and labels
+clf.fit(features_train, labels_train)
+
+### use the trained classifier to predict labels for the test features
+pred = clf.predict(features_test)
+
+### get the accuracy
+accuracy = accuracy_score(labels_test, pred)
+
+print("Accuracy: ", accuracy)
 
 #########################################################
 
